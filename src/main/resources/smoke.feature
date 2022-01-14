@@ -3,6 +3,31 @@ Feature: Smoke
   I want to test all main site functionality
   So that I can be sure that site works correctly
 
+  Scenario: Check main components on header
+    Given User opens 'https://www.ebay.com' page
+    And User checks that logo is present
+    And User checks that category button is present
+    And User checks that Sing in button is present
+    And User checks that register button is present
+    And User checks that Search box is present
+    And User checks that cart button is present
+    And User checks that notifications button is present
+    And User checks that My ebay button is present
+    And User checks that watchlist is present
+    And User checks that button to change delivery location is present
+    And User checks that Help & Contact is present
+
+  Scenario: Check main components on footer
+    Given User opens 'https://www.ebay.com' page
+    And User checks that button with functionality responsible for buy is present
+    And User checks that button with functionality responsible for sell is present
+    And User checks that links to social networks is present
+    And User checks that About eBay button is present
+    And User checks that Help & Contact is present
+    And User checks that Community button is present
+    And User checks that dropbox site variation is present
+    And User checks that Verify site's SSL certificate button is present
+
   Scenario Outline: Check that Search Result Contains keyword
     Given User opens '<homePage>' page
     And User checks search field visibility
@@ -33,7 +58,6 @@ Feature: Smoke
     And User clicks on electric guitar button
     And User selects sort by Price + Shipping: lowest first
     Then User checks the correctness of the sorting result
-
 
   Scenario Outline: Check registration with invalid email
     Given User opens '<homePage>' page
@@ -90,7 +114,7 @@ Feature: Smoke
     When User makes search by keyword '<keyword1>'
     And User clicks on search button
     And User adds first item to cart
-    When User makes search by keyword '<keyword2>'
+    And User makes search by keyword '<keyword2>'
     And User clicks on search button
     And User adds first item to cart
     Then User checks that total sum is correctly calculated
@@ -98,9 +122,3 @@ Feature: Smoke
     Examples:
       | homePage             |   keyword1  |  keyword2  |
       | https://www.ebay.com | huawei p40  | iPhone 13  |
-
-  Scenario: Check
-    Given User opens 'https://www.ebay.com' page
-
-  Scenario: Check
-    Given User opens 'https://www.ebay.com' page
