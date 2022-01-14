@@ -37,4 +37,12 @@ public class PageFactoryManager {
     public CartPage getCartPage(){
         return new CartPage(driver);
     }
+
+    public Header getHeader(){
+        return new Header(driver);
+    }
+
+    public Footer getFooter(){
+        return new Footer(driver);
+    }
 }
