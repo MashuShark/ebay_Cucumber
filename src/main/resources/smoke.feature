@@ -108,7 +108,7 @@ Feature: Smoke
 
     Examples:
       | homePage             |  keyword   |
-      | https://www.ebay.com | iPhone 13  |
+      | https://www.ebay.com | iPhone 12  |
 
   Scenario Outline: Check that total sum is correctly calculated
     Given User opens '<homePage>' page
@@ -123,4 +123,4 @@ Feature: Smoke
 
     Examples:
       | homePage             |   keyword1  |  keyword2  |
-      | https://www.ebay.com | huawei p40  | iPhone 13  |
+      | https://www.ebay.com | huawei p40  | iPhone 12  |

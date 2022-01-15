@@ -4,6 +4,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import managar.PageFactoryManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -200,11 +201,6 @@ public class DefinitionSteps {
         assertEquals(cartPage.getTotalPriceCalculated(), cartPage.getSubtotalPrice(), 0);
     }
 
-    @After
-    public void tearDown(){
-        driver.close();
-    }
-
     @And("User checks that home button is visible")
     public void checkThatHomeButtonIsVisible() {
         assertTrue(header.isHomeButtonVisible());
@@ -264,5 +260,62 @@ public class DefinitionSteps {
     @And("User checks that Help & Contact button is visible")
     public void checkThatHelpContactButtonIsVisible() {
         assertTrue(header.isHelpContactButtonVisible());
+    }
+
+
+
+
+    @After
+    public void tearDown(){
+        driver.close();
+    }
+
+
+    @When("User move to footer")
+    public void moveToFooter() {
+        homePage.moveToFooter();
+        footer = pageFactoryManager.getFooter();
+    }
+
+
+    @And("User checks that button with functionality responsible for buy is visible")
+    public void checkThatButtonWithFunctionalityResponsibleForBuyIsVisible() {
+        assertTrue(footer.isBuyButtonVisible());
+    }
+
+
+    @And("User checks that button with functionality responsible for sell is visible")
+    public void checkThatButtonWithFunctionalityResponsibleForSellIsVisible() {
+        assertTrue(footer.isSellButtonVisible());
+    }
+
+    @And("User checks that links to social networks is visible")
+    public void checkThatLinksToSocialNetworksIsVisible() {
+        assertTrue(footer.isSocialNetworksVisible());
+    }
+
+    @And("User checks that About eBay button is visible")
+    public void checkThatAboutEbayButtonIsVisible() {
+        assertTrue(footer.isAboutEbayButtonVisible());
+    }
+
+    @And("User checks that Help & Contact is visible")
+    public void checkThatHelpContactIsVisible() {
+        assertTrue(footer.isHelpContactButtonVisible());
+    }
+
+    @And("User checks that Community button is visible")
+    public void checkThatCommunityButtonIsVisible() {
+        assertTrue(footer.isCommunityButtonVisible());
+    }
+
+    @And("User checks that dropbox site variation is visible")
+    public void checkThatDropboxSiteVariationIsVisible() {
+        assertTrue(footer.isDropboxSiteVariationVisible());
+    }
+
+    @And("User checks that Verify site's SSL certificate button is visible")
+    public void checkThatVerifySiteSSSLCertificateButtonIsVisible() {
+        assertTrue(footer.isVerifySSLButtonVisible());
     }
 }

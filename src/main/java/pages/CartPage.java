@@ -46,6 +46,6 @@ public class CartPage extends BasePage{
     }
 
     public double getTotalPriceCalculated(){
-        return getItemsPrice() + getShippingPrice();
+        return Math.round((getItemsPrice() + getShippingPrice()) * 100.0) / 100.0;
     }
 }

@@ -45,9 +45,6 @@ public class Header extends BasePage {
     @FindBy(xpath = "//div[@aria-label='Account']//a[contains(text(),'Help')]") // search!!
     private WebElement helpContactButton;
 
-//    @FindBy(xpath = "")
-//    private WebElement gggg;
-
     public Header(WebDriver driver) {
         super(driver);
     }
