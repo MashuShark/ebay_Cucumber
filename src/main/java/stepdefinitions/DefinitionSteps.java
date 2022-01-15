@@ -34,6 +34,8 @@ public class DefinitionSteps {
     PageFactoryManager pageFactoryManager;
     FirstItemOnSearchPage firstItemOnSearchPage;
     CartPage cartPage;
+    Header header;
+    Footer footer;
 
     @Before
     public void testSetUp(){
@@ -47,22 +49,23 @@ public class DefinitionSteps {
     public void openPage(final String url){
         homePage = pageFactoryManager.getHomePage();
         homePage.openHomePage(url);
+        header = pageFactoryManager.getHeader();
     }
 
     @And("User checks search field visibility")
     public void checkSearchVisibility() {
         homePage.waitForPageLoadComplete(DEFAULT_TIMEOUT);
-        homePage.isSearchFieldVisible();
+        header.isSearchFieldVisible();
     }
 
     @And("User makes search by keyword {string}")
     public void enterKeywordToSearchField(final String keyword) {
-        homePage.enterTextToSearchField(keyword);
+        header.enterTextToSearchField(keyword);
     }
 
     @And("User clicks on search button")
     public void clickSearchButton(){
-        homePage.clickSearchButton();
+        header.clickSearchButton();
     }
 
     @And("User checks that Search Result Contains {string}")
@@ -81,17 +84,17 @@ public class DefinitionSteps {
 
     @And("User checks category button visibility")
     public void checkCategoryButtonVisibility() {
-        homePage.isCategoryButtonVisible();
+        header.isCategoryButtonVisible();
     }
 
     @And("User clicks on category button")
     public void userClicksOnCategoryButton() {
-        homePage.clickOnCategoryButton();
+        header.clickOnCategoryButton();
     }
 
     @And("User opens guitar category")
     public void openGuitarCategory() {
-        homePage.clickOnGuitarCategory();
+        header.clickOnGuitarCategory();
     }
 
     @And("User clicks on electric guitar button")
@@ -114,7 +117,7 @@ public class DefinitionSteps {
 
     @And("User checks registration button visibility")
     public void checkRegistrationButtonVisibility() {
-        homePage.isRegistrationButtonVisible();
+        header.isRegistrationButtonVisible();
     }
 
     @And("User enters first name {string}")
@@ -146,7 +149,7 @@ public class DefinitionSteps {
 
     @And("User opens registration page")
     public void userOpensRegistrationPage() {
-        homePage.clickOnRegistrationButton();
+        header.clickOnRegistrationButton();
     }
 
     @Then("User checks that on register page present SingInButton")
@@ -165,13 +168,7 @@ public class DefinitionSteps {
     public void addFirstItemToCart() {
         searchResultsPage = pageFactoryManager.getSearchResultsPage();
         searchResultsPage.clickOnFirstItem();
-
         searchResultsPage.switchBetweenWindows();
-//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-//        driver.switchTo().window(tabs2.get(0));
-//        driver.close();
-//        driver.switchTo().window(tabs2.get(1));
-
         firstItemOnSearchPage = pageFactoryManager.getFirstItemOnSearchPage();
         firstItemOnSearchPage.clickOnAddToCartButton();
     }
@@ -184,12 +181,12 @@ public class DefinitionSteps {
 
     @And("User goes to Home page")
     public void userGoesToHomePage() {
-        homePage.clickOnHomeButton();
+        header.clickOnHomeButton();
     }
 
     @And("User opens cart")
     public void openCart() {
-        homePage.clickOnCartButton();
+        header.clickOnCartButton();
     }
 
     @Then("User checks that cart is empty")
@@ -197,17 +194,75 @@ public class DefinitionSteps {
         cartPage.isCartIsEmptyMessageVisible();
     }
 
-
+    @Then("User checks that total sum is correctly calculated")
+    public void checkThatTotalSumIsCorrectlyCalculated() {
+        cartPage = pageFactoryManager.getCartPage();
+        assertEquals(cartPage.getTotalPriceCalculated(), cartPage.getSubtotalPrice(), 0);
+    }
 
     @After
     public void tearDown(){
         driver.close();
     }
 
+    @And("User checks that home button is visible")
+    public void checkThatHomeButtonIsVisible() {
+        assertTrue(header.isHomeButtonVisible());
+    }
 
-    @Then("User checks that total sum is correctly calculated")
-    public void checkThatTotalSumIsCorrectlyCalculated() {
-        cartPage = pageFactoryManager.getCartPage();
-        assertEquals(cartPage.getTotalPriceCalculated(), cartPage.getSubtotalPrice(), 0);
+    @And("User checks that category button is visible")
+    public void checkThatCategoryButtonIsVisible() {
+        assertTrue(header.isCategoryButtonVisible());
+    }
+
+    @And("User checks that Sing in button is visible")
+    public void checkThatSignInButtonIsVisible() {
+        assertTrue(header.isSignInButtonVisible());
+    }
+
+    @And("User checks that register button is visible")
+    public void checkThatRegisterButtonIsVisible() {
+        assertTrue(header.isRegistrationButtonVisible());
+    }
+
+
+    @And("User checks that Search box is visible")
+    public void checkThatSearchBoxIsVisible() {
+        assertTrue(header.isSearchFieldVisible());
+    }
+
+    @And("User checks that Search button is visible")
+    public void checkThatSearchButtonIsVisible() {
+        assertTrue(header.isSearchButtonVisible());
+    }
+
+    @And("User checks that cart button is visible")
+    public void checkThatCartButtonIsVisible() {
+        assertTrue(header.isCartButtonVisible());
+    }
+
+    @And("User checks that notifications button is visible")
+    public void checkThatNotificationsButtonIsVisible() {
+        assertTrue(header.isNotificationsButtonVisible());
+    }
+
+    @And("User checks that My ebay button is visible")
+    public void checkThatMyEbayButtonIsVisible() {
+        assertTrue(header.isMyEbayButtonVisible());
+    }
+
+    @And("User checks that watchlist button is visible")
+    public void checkThatWatchlistButtonIsVisible() {
+        assertTrue(header.isWatchlistButtonVisible());
+    }
+
+    @And("User checks that change delivery location button is visible")
+    public void checkThatChangeDeliveryLocationButtonIsVisible() {
+        assertTrue(header.isChangeDeliveryLocationButtonVisible());
+    }
+
+    @And("User checks that Help & Contact button is visible")
+    public void checkThatHelpContactButtonIsVisible() {
+        assertTrue(header.isHelpContactButtonVisible());
     }
 }

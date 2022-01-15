@@ -5,28 +5,30 @@ Feature: Smoke
 
   Scenario: Check main components on header
     Given User opens 'https://www.ebay.com' page
-    And User checks that logo is present
-    And User checks that category button is present
-    And User checks that Sing in button is present
-    And User checks that register button is present
-    And User checks that Search box is present
-    And User checks that cart button is present
-    And User checks that notifications button is present
-    And User checks that My ebay button is present
-    And User checks that watchlist is present
-    And User checks that button to change delivery location is present
-    And User checks that Help & Contact is present
+    And User checks that home button is visible
+    And User checks that category button is visible
+    And User checks that Sing in button is visible
+    And User checks that register button is visible
+    And User checks that Search box is visible
+    And User checks that Search button is visible
+    And User checks that cart button is visible
+    And User checks that notifications button is visible
+    And User checks that My ebay button is visible
+    And User checks that watchlist button is visible
+    And User checks that change delivery location button is visible
+    And User checks that Help & Contact button is visible
 
   Scenario: Check main components on footer
     Given User opens 'https://www.ebay.com' page
-    And User checks that button with functionality responsible for buy is present
-    And User checks that button with functionality responsible for sell is present
-    And User checks that links to social networks is present
-    And User checks that About eBay button is present
-    And User checks that Help & Contact is present
-    And User checks that Community button is present
-    And User checks that dropbox site variation is present
-    And User checks that Verify site's SSL certificate button is present
+    When User move to footer
+    And User checks that button with functionality responsible for buy is visible
+    And User checks that button with functionality responsible for sell is visible
+    And User checks that links to social networks is visible
+    And User checks that About eBay button is visible
+    And User checks that Help & Contact is visible
+    And User checks that Community button is visible
+    And User checks that dropbox site variation is visible
+    And User checks that Verify site's SSL certificate button is visible
 
   Scenario Outline: Check that Search Result Contains keyword
     Given User opens '<homePage>' page
