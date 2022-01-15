@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class RegisterPage extends BasePage{
 
-
     @FindBy(xpath = "//input[@id='firstname']")
     private WebElement firstName;
 

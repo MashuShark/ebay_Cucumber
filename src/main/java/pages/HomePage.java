@@ -11,7 +11,6 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//footer[@id='glbfooter']")
     private WebElement footer;
 
-
     public HomePage(WebDriver driver) {
         super(driver);
     }

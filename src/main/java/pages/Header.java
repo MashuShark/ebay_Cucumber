@@ -97,17 +97,6 @@ public class Header extends BasePage {
         return helpContactButton.isDisplayed();
     }
 
-//    public void isSearchFieldVisible() {
-//        searchField.isDisplayed();
-//    }
-//
-//    public void isCategoryButtonVisible() {
-//        categoryButton.isDisplayed();
-//    }
-//
-//    public void isRegistrationButtonVisible() {
-//        registrationButton.isDisplayed();
-//    }
 
     public void enterTextToSearchField(final String searchText) {
         searchField.clear();
@@ -137,5 +126,4 @@ public class Header extends BasePage {
     public void clickOnGuitarCategory(){
         guitarCategory.click();
     }
-
 }

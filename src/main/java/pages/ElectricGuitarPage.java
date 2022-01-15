@@ -1,16 +1,12 @@
 package pages;
 
-import io.netty.util.internal.MathUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import static com.google.common.collect.Iterables.isEmpty;
 
 public class ElectricGuitarPage extends BasePage {
 
@@ -43,7 +39,6 @@ public class ElectricGuitarPage extends BasePage {
     public void moveAndClickOnSortByPriceShippingLowestFirst() {
         sortByPriceShippingLowestFirst.click();
     }
-
 
     public List<Double> getPrice() {
        List<Double> priceList = new ArrayList<Double>();
@@ -83,20 +78,5 @@ public class ElectricGuitarPage extends BasePage {
             else return false;
         } return true;
     }
-//    public  boolean checkThatListIsSorted(List<Double> list) {
-//        if (isEmpty(list) || list.size() == 1) {
-//            return true;
-//        }
-//
-//        Iterator<Double> iter = list.iterator();
-//        Double current, previous = iter.next();
-//        while (iter.hasNext()) {
-//            current = iter.next();
-//            if (previous.compareTo(current) > 0) {
-//                return false;
-//            }
-//            previous = current;
-//        }
-//        return true;
-//    }
+
 }
