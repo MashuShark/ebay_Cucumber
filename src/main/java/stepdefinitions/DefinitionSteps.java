@@ -169,7 +169,7 @@ public class DefinitionSteps {
     public void addFirstItemToCart() {
         searchResultsPage = pageFactoryManager.getSearchResultsPage();
         searchResultsPage.clickOnFirstItem();
-        searchResultsPage.switchBetweenWindows();
+        searchResultsPage.switchBetweenBrowserTabs();
         firstItemOnSearchPage = pageFactoryManager.getFirstItemOnSearchPage();
         firstItemOnSearchPage.clickOnAddToCartButton();
     }

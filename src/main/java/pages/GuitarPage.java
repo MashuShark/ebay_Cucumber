@@ -13,6 +13,7 @@ public class GuitarPage extends BasePage{
         super(driver);
     }
 
+    // open electric guitar category
     public void clickOnElectricGuitarButton(){
         electricGuitarButton.click();
     }

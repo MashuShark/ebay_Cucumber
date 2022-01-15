@@ -33,19 +33,23 @@ public class CartPage extends BasePage{
         cartIsEmptyMessage.isDisplayed();
     }
 
-    public double getShippingPrice(){
+
+    // get item price string and convert it to double price, e.g. "US $1,000.00" to "1000.00"
+    public double getItemsPrice(){
         return Double.parseDouble(itemsPrice.getText().split(" ")[1].replaceAll("[$,]", ""));
     }
 
-    public double getItemsPrice(){
+    // get shipping price string and convert it to double price, e.g. "US $1,000.00" to "1000.00"
+    public double getShippingPrice(){
         return Double.parseDouble(shippingPrice.getText().split(" ")[1].replaceAll("[$,]", ""));
     }
 
+    // get subtotal (item + shipping) price string and convert it to double price, e.g. "US $1,000.00" to "1000.00"
     public double getSubtotalPrice(){
         return Double.parseDouble(subtotalPrice.getText().split(" ")[1].replaceAll("[$,]", ""));
     }
 
     public double getTotalPriceCalculated(){
-        return Math.round((getItemsPrice() + getShippingPrice()) * 100.0) / 100.0;
+        return Math.round((getItemsPrice() + getShippingPrice()) * 100.0) / 100.0; // ×100 and ÷100 to leave two digits after comma
     }
 }
