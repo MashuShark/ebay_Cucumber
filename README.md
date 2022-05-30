@@ -41,4 +41,4 @@ Test 10:
 Check that total sum is correctly calculated
 
 ### Tools:	testNG, XPath, Selenium WebDriver, SeleniumGrid, Cucumber;
-### Technologies:	Java, PageFactory, BDD;
+### Technologies:	Java, maven, PageFactory, BDD;
