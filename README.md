@@ -1,4 +1,4 @@
-# Autotest for [ebay] (https://www.ebay.com) using by Cucumber
+# Autotest for [ebay](https://www.ebay.com) using by Cucumber
 
 Test 1:
 
